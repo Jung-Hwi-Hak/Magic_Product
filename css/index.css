@@ -1,0 +1,78 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+  min-height: 100vh;
+  background-color: #262626;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+}
+section{
+  width: 70%;
+}
+section ul{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  list-style: none;
+  -webkit-box-reflect: below 1px linear-gradient(transparent, rgba(0,0,0,.2));
+
+}
+section ul li{
+  position: relative;
+  width: 30%;
+  height: 200px;
+  background-color: #444;
+  border-radius: 20px;
+  /* filter  */
+  filter: grayscale(1);
+  /* linear->  , infinite -> loop */
+  /* animation-direction: alternate; */
+  animation: animateBg 3s linear infinite;
+  animation-play-state: paused;
+  display: flex;
+  /* 프로덕트 페이지엔 사용하지 말기! */
+  transition-duration: 1s;
+}
+section ul li img{
+  position: absolute;
+  height: 90%;
+  bottom: 0;
+  left: 25%;
+}
+section ul li:first-of-type{
+  background: linear-gradient(45deg, teal 25%,
+  #444 25%, #444 50%,
+  teal 50%, teal 75%,
+  #444 75%, #444 100%);
+  background-size: 40px 40px;
+}
+section ul li:last-of-type{
+  background: linear-gradient(135deg, tomato 25%,
+  #444 25%, #444 50%,
+  tomato 50%, tomato 75%,
+  #444 75%, #444 100%);
+  background-size: 40px 40px;
+}
+section ul li:hover{
+  animation-play-state: running;
+  filter: grayscale(0);
+}
+
+section ul li:last-child{
+  margin-left: 5%;
+}
+section ul li img{
+  width: 50%;
+  display: block;
+  margin: 0 auto;
+}
+
+@keyframes animateBg{
+  100%{
+    background-position: 0;
+  }
+}
